@@ -9,13 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "5.3.8",
+    "font-awesome-icons": "^1.6.0",
+    "iconsax-reactjs": "^0.0.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
     "vite": "^3.0.7"
+  },
+  "volta": {
+    "node": "22.21.0",
+    "yarn": "4.10.3"
   }
 }

@@ -1,0 +1,14 @@
+.formInputPlaceholder::placeholder {
+    font-size: 14px !important;
+}
+
+.textBtnHover:hover {
+    background-color: rgba(233, 236, 241, 0.507) !important;
+}
+
+.positionImage {
+    position: fixed;
+    top: 0;
+    object-fit: cover;
+    height: 100vh;
+}
