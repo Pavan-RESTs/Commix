@@ -4,14 +4,14 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { AlertProvider } from "./context/AlertContext";
+import { Provider } from "./Provider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <AlertProvider>
+      <Provider>
         <App />
-      </AlertProvider>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -5,9 +5,16 @@ import { Images, Icons } from "../constants/image-strings";
 import { authService } from "../services/authService";
 import Alert from "../components/Alert";
 import { useAlert } from "../hooks/useAlert";
+import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 function AuthPage() {
   const { triggerAlert } = useAlert();
+
+  const { setUser } = useAuth();
+
+  const navigate = useNavigate();
+  
 
   const [isLogin, setIsLogin] = useState(true);
   const [credentials, setCredentials] = useState({
@@ -36,8 +43,9 @@ function AuthPage() {
   const loginHandler = async (event) => {
     event.preventDefault();
     try {
-      await authService.login(credentials);
+      const data = await authService.login(credentials);
       triggerAlert("Login successful", "success");
+      setUser({ username: data.username });
     } catch (error) {
       triggerAlert(error.response?.data?.errorMessage, "danger");
     }

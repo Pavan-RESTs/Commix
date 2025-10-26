@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useAlert } from "../hooks/useAlert";
 
 const apiClient = axios.create({
   baseURL: "http://localhost:8080/api/v1",
@@ -10,6 +9,7 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   (config) => {
+    if (config.url.includes("auth")) return config;
     const token = localStorage.getItem("jwtToken");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -18,7 +18,5 @@ apiClient.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
-
-apiClient.interceptors.response.use((response) => response);
 
 export default apiClient;

@@ -32,7 +32,7 @@ public class AuthenticationService {
     public void register(UserModel userModel) {
         userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
         if (userRepository.findByUsername(userModel.getUsername()) != null) {
-            throw new UsernameAlreadyExistException("Username is unavailable!");
+            throw new UsernameAlreadyExistException("Username is unavailable");
         }
         userRepository.save(userModel);
     }

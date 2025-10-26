@@ -1,6 +1,5 @@
 package com.commix.server.filter;
 
-import com.commix.server.configuration.SecurityConfig;
 import com.commix.server.service.CustomUserDetailsService;
 import com.commix.server.service.JwtService;
 import jakarta.servlet.FilterChain;
@@ -37,11 +36,6 @@ public class JwtFilter extends OncePerRequestFilter {
             token = authorization.substring(7);
             System.out.println(token);
             username = jwtService.extractUsername(token);
-        }
-
-        if (SecurityContextHolder.getContext().getAuthentication() != null) {
-            System.out.println("Yes it is not empty");
-            System.out.println(SecurityContextHolder.getContext().getAuthentication());
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {

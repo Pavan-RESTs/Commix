@@ -1,7 +1,11 @@
+import { useAuth } from "../hooks/useAuth";
+
 function HomePage() {
+  const { user } = useAuth();
   return (
     <>
-        {/* Want to display user info */}
+      <h1> Home Page </h1>
+      <h1> {user.username} </h1>
     </>
   );
 }

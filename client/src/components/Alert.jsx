@@ -5,9 +5,13 @@ import Styles from "../styles/global.module.css";
 function Alert(prop) {
   const { dismissAlert } = useAlert();
 
-  return prop.showAlert ? (
+  return (
     <div
-      className={`col-4 alert alert-${prop.status} alert-dismissible fade show ${Styles.customAlert}`}
+      className={`col-4 alert alert-${
+        prop.status
+      } alert-dismissible fade show ${Styles.customAlert} ${
+        prop.showAlert ? Styles.slideIn : Styles.slideOut
+      }`}
       role="alert"
     >
       {prop.message}
@@ -17,7 +21,7 @@ function Alert(prop) {
         className={`btn-close ${Styles.removeFocus}`}
       ></button>
     </div>
-  ) : null;
+  );
 }
 
 export default Alert;
