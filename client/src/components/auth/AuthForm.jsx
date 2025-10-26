@@ -1,17 +1,19 @@
-import { Images, Icons } from "../constants/image-strings";
-import Styles from "../styles/global.module.css";
-import { useState } from "react";
+import { Images, Icons } from "../../constants/image-strings";
+import { authService } from "../../services/authService";
+import Styles from "../../styles/global.module.css";
+import { useRef, useState } from "react";
 
 function AuthForm(prop) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
+  const passwordInputRef = useRef();
+
   const passwordVisibilityHandler = () => {
     setIsPasswordVisible(!isPasswordVisible);
-    const passwordInput = document.querySelector("#passwordInput");
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
+    if (passwordInputRef.current.type === "password") {
+      passwordInputRef.current.type = "text";
     } else {
-      passwordInput.type = "password";
+      passwordInputRef.current.type = "password";
     }
   };
 
@@ -20,25 +22,28 @@ function AuthForm(prop) {
       <form className="mt-2" onSubmit={prop.submitHandler}>
         <div className="input-group mt-3">
           <input
-            id="emailInput"
-            type="email"
-            value={prop.email.email}
-            onChange={prop.email.emailHandler}
-            className={`form-control border-end-0 rounded-start-pill py-2 ${Styles.formInputPlaceholder}`}
-            placeholder="Enter your email"
+            id="usernameInput"
+            type="username"
+            value={prop.credentials.username}
+            onChange={prop.usernameHandler}
+            className={`form-control rounded-start-pill py-2 ps-3 ${Styles.formInputPlaceholder}`}
+            placeholder="Enter your username"
+            required
           />
           <span className="input-group-text bg-transparent rounded-end-pill">
-            <img src={Icons.EmailIcon} alt="email" />
+            <img src={Icons.UsernameIcon} alt="username" />
           </span>
         </div>
         <div className="input-group mt-3">
           <input
             id="passwordInput"
             type="password"
-            value={prop.password.password}
-            onChange={prop.password.passwordHandler}
-            className={`form-control border-end-0 rounded-start-pill py-2 ${Styles.formInputPlaceholder}`}
+            value={prop.credentials.password}
+            onChange={prop.passwordHandler}
+            className={`form-control rounded-start-pill py-2 ps-3 ${Styles.formInputPlaceholder}`}
             placeholder="Enter your password"
+            ref={passwordInputRef}
+            required
           />
           <span className="input-group-text bg-transparent rounded-end-pill">
             {isPasswordVisible ? (
@@ -81,7 +86,7 @@ function AuthForm(prop) {
           type="submit"
           className="btn btn-primary col-12 rounded-pill mt-3 py-2 fw-lighter"
         >
-          {prop.isSignIn ? "Login" : "Submit"}
+          {prop.isLogin ? "Login" : "Submit"}
         </button>
         <div className="d-flex align-items-center justify-content-between mt-4">
           <hr className="flex-grow-1" />

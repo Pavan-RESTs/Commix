@@ -5,24 +5,24 @@ function ToggleButton(prop) {
         <button
           type="button"
           className={`col-6 btn btn-primary rounded-pill fw-lighter ${
-            prop.isSignIn
+            prop.isLogin
               ? ""
               : "bg-transparent text-secondary fw-light border-0"
           }`}
           onClick={prop.toggleHandler}
         >
-          Sign In
+          Login
         </button>
         <button
           type="button"
           className={`col-6 btn btn-primary rounded-pill fw-lighter ${
-            prop.isSignIn
+            prop.isLogin
               ? "bg-transparent text-secondary fw-light border-0"
               : ""
           }`}
           onClick={prop.toggleHandler}
         >
-          Sign Up
+          Register
         </button>
       </div>
     </>
