@@ -16,4 +16,9 @@ export const authApi = {
     const response = await apiClient.get(authEndpoints.logout);
     return response;
   },
+
+  validate: async () => {
+    const response = await apiClient.post(authEndpoints.validate);
+    return response;
+  },
 };

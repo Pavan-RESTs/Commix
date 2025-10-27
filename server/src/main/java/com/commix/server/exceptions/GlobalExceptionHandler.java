@@ -2,6 +2,8 @@ package com.commix.server.exceptions;
 
 import com.commix.server.dto.ErrorResponseDTO;
 import com.commix.server.exceptions.authentication.UsernameAlreadyExistException;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

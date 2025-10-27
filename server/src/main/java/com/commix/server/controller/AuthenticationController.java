@@ -2,9 +2,11 @@ package com.commix.server.controller;
 
 import com.commix.server.dto.request.LoginRequestDTO;
 import com.commix.server.dto.response.LoginResponseDTO;
+import com.commix.server.dto.response.ValidationResponseDTO;
 import com.commix.server.model.UserModel;
 import com.commix.server.service.AuthenticationService;
 import com.commix.server.service.JwtService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,5 +40,12 @@ public class AuthenticationController {
     @GetMapping("/logout")
     public ResponseEntity<?> logout() {
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @PostMapping("/validate")
+    public ResponseEntity<?> validate(HttpServletRequest request) {
+        UserModel userModel = authenticationService.validate();
+        ValidationResponseDTO response = new ValidationResponseDTO(userModel.getUsername());
+        return ResponseEntity.ok(response);
     }
 }

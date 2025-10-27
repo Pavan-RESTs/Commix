@@ -9,7 +9,9 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   (config) => {
-    if (config.url.includes("auth")) return config;
+    const noBearerEndpoints = ["auth/login", "auth/register"];
+    if (noBearerEndpoints.some((endpoint) => config.url.includes(endpoint)))
+      return config;
     const token = localStorage.getItem("jwtToken");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;

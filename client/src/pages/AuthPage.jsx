@@ -2,19 +2,13 @@ import ToggleButton from "../components/auth/ToggleButton";
 import AuthForm from "../components/auth/AuthForm";
 import { useState } from "react";
 import { Images, Icons } from "../constants/image-strings";
-import { authService } from "../services/authService";
-import Alert from "../components/Alert";
-import { useAlert } from "../hooks/useAlert";
-import { useAuth } from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useAlert } from "../context/AlertContext";
 
 function AuthPage() {
   const { triggerAlert } = useAlert();
 
-  const { setUser } = useAuth();
-
-  const navigate = useNavigate();
-  
+  const { login, register } = useAuth();
 
   const [isLogin, setIsLogin] = useState(true);
   const [credentials, setCredentials] = useState({
@@ -43,9 +37,8 @@ function AuthPage() {
   const loginHandler = async (event) => {
     event.preventDefault();
     try {
-      const data = await authService.login(credentials);
+      const data = await login(credentials);
       triggerAlert("Login successful", "success");
-      setUser({ username: data.username });
     } catch (error) {
       triggerAlert(error.response?.data?.errorMessage, "danger");
     }
@@ -54,8 +47,9 @@ function AuthPage() {
   const registerHandler = async (event) => {
     event.preventDefault();
     try {
-      await authService.register(credentials);
+      await register(credentials);
       triggerAlert("Registration successful", "success");
+      setCredentials({ username: "", password: "" });
     } catch (error) {
       triggerAlert(error.response?.data?.errorMessage, "danger");
     }

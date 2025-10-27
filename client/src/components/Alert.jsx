@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useAlert } from "../hooks/useAlert";
+import { useAlert } from "../context/AlertContext";
 import Styles from "../styles/global.module.css";
 
 function Alert(prop) {
@@ -7,11 +6,7 @@ function Alert(prop) {
 
   return (
     <div
-      className={`col-4 alert alert-${
-        prop.status
-      } alert-dismissible fade show ${Styles.customAlert} ${
-        prop.showAlert ? Styles.slideIn : Styles.slideOut
-      }`}
+      className={`col-4 alert alert-${prop.status} alert-dismissible fade show ${Styles.customAlert}`}
       role="alert"
     >
       {prop.message}

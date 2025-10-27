@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import Alert from "../components/Alert";
 
 export const AlertContext = createContext();
@@ -25,8 +25,10 @@ export const AlertProvider = ({ children }) => {
 
   return (
     <AlertContext.Provider value={{ triggerAlert, dismissAlert }}>
-      <Alert message={message} status={status} showAlert={showAlert} />
+      {showAlert ? <Alert message={message} status={status} /> : ""}
       {children}
     </AlertContext.Provider>
   );
 };
+
+export const useAlert = () => useContext(AlertContext);

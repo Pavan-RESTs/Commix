@@ -1,5 +1,4 @@
 import { Images, Icons } from "../../constants/image-strings";
-import { authService } from "../../services/authService";
 import Styles from "../../styles/global.module.css";
 import { useRef, useState } from "react";
 
