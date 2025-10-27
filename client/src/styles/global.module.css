@@ -17,6 +17,7 @@
   position: fixed !important;
   top: 20px !important;
   right: 20px !important;
+  width: 360px !important;
 }
 
 .removeFocus:focus,
@@ -49,9 +50,9 @@
 }
 
 .slideIn {
-  animation: slideIn 1s forwards;
+  animation: slideIn 0.8s forwards;
 }
 
 .slideOut {
-  animation: slideOut 1s forwards;
+  animation: slideOut 0.8s forwards;
 }

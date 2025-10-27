@@ -8,7 +8,7 @@ export function RouteGuard(prop) {
     return <div> Loading </div>;
   }
   if (prop.authProtected) {
-    return isAuthenticated ? <Navigate to="/" replace /> : <Outlet />;
+    return isAuthenticated ? <Navigate to="/dashboard" replace /> : <Outlet />;
   } else {
     return isAuthenticated ? <Outlet /> : <Navigate to="/auth" replace />;
   }

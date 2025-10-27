@@ -1173,6 +1173,7 @@ __metadata:
     bootstrap: "npm:5.3.8"
     font-awesome-icons: "npm:^1.6.0"
     iconsax-reactjs: "npm:^0.0.8"
+    ldrs: "npm:^1.1.9"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-router-dom: "npm:^7.9.4"
@@ -1537,6 +1538,13 @@ __metadata:
   dependencies:
     json-buffer: "npm:3.0.0"
   checksum: 10c0/6ad784361b4c0213333a8c5bc0bcc59cf46cb7cbbe21fb2f1539ffcc8fe18b8f1562ff913b40552278fdea5f152a15996dfa61ce24ce1a22222560c650be4a1b
+  languageName: node
+  linkType: hard
+
+"ldrs@npm:^1.1.9":
+  version: 1.1.9
+  resolution: "ldrs@npm:1.1.9"
+  checksum: 10c0/3d5ec868cd08bbdb94d494a0eb05cfadb18da475d3b504ef728ff9606e24758f6041b75fa4af55813e60df738f270c3448402791aad595a761c0d920f65ad758
   languageName: node
   linkType: hard
 

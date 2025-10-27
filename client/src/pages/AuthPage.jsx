@@ -1,7 +1,7 @@
 import ToggleButton from "../components/auth/ToggleButton";
 import AuthForm from "../components/auth/AuthForm";
 import { useState } from "react";
-import { Images, Icons } from "../constants/image-strings";
+import { Images } from "../constants/image-strings";
 import { useAuth } from "../context/AuthContext";
 import { useAlert } from "../context/AlertContext";
 
@@ -37,7 +37,7 @@ function AuthPage() {
   const loginHandler = async (event) => {
     event.preventDefault();
     try {
-      const data = await login(credentials);
+      await login(credentials);
       triggerAlert("Login successful", "success");
     } catch (error) {
       triggerAlert(error.response?.data?.errorMessage, "danger");
@@ -50,6 +50,7 @@ function AuthPage() {
       await register(credentials);
       triggerAlert("Registration successful", "success");
       setCredentials({ username: "", password: "" });
+      toggleHandler();
     } catch (error) {
       triggerAlert(error.response?.data?.errorMessage, "danger");
     }

@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     const { data } = await authApi.login(credentials);
     localStorage.setItem("jwtToken", data.jwtToken);
     setIsAuthenticated(true);
-    setUser({ username: data.username});
+    setUser({ username: data.username });
     return data;
   };
 
@@ -48,7 +48,6 @@ export const AuthProvider = ({ children }) => {
         setUser({ username: data.username });
         setIsAuthenticated(true);
       } catch (error) {
-        console.log(error);
         setUser(null);
         setIsAuthenticated(false);
       } finally {

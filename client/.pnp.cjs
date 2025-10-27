@@ -36,6 +36,7 @@ const RAW_RUNTIME_STATE =
           ["font-awesome-icons", "npm:1.6.0"],\
           ["frontend", "workspace:."],\
           ["iconsax-reactjs", "virtual:d9650954c7f1725ea712d2e40695de9ea5d1c0fa9b89379134c62909d440d91b03d6c37e2823804a3404472b90a5bec73c82193190dd3c4db4c9e9edd75db91e#npm:0.0.8"],\
+          ["ldrs", "npm:1.1.9"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:d9650954c7f1725ea712d2e40695de9ea5d1c0fa9b89379134c62909d440d91b03d6c37e2823804a3404472b90a5bec73c82193190dd3c4db4c9e9edd75db91e#npm:18.3.1"],\
           ["react-router-dom", "virtual:d9650954c7f1725ea712d2e40695de9ea5d1c0fa9b89379134c62909d440d91b03d6c37e2823804a3404472b90a5bec73c82193190dd3c4db4c9e9edd75db91e#npm:7.9.4"],\
@@ -1474,6 +1475,7 @@ const RAW_RUNTIME_STATE =
           ["font-awesome-icons", "npm:1.6.0"],\
           ["frontend", "workspace:."],\
           ["iconsax-reactjs", "virtual:d9650954c7f1725ea712d2e40695de9ea5d1c0fa9b89379134c62909d440d91b03d6c37e2823804a3404472b90a5bec73c82193190dd3c4db4c9e9edd75db91e#npm:0.0.8"],\
+          ["ldrs", "npm:1.1.9"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:d9650954c7f1725ea712d2e40695de9ea5d1c0fa9b89379134c62909d440d91b03d6c37e2823804a3404472b90a5bec73c82193190dd3c4db4c9e9edd75db91e#npm:18.3.1"],\
           ["react-router-dom", "virtual:d9650954c7f1725ea712d2e40695de9ea5d1c0fa9b89379134c62909d440d91b03d6c37e2823804a3404472b90a5bec73c82193190dd3c4db4c9e9edd75db91e#npm:7.9.4"],\
@@ -1884,6 +1886,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["json-buffer", "npm:3.0.0"],\
           ["keyv", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["ldrs", [\
+      ["npm:1.1.9", {\
+        "packageLocation": "../../../.yarn/berry/cache/ldrs-npm-1.1.9-f4eacabb6d-10c0.zip/node_modules/ldrs/",\
+        "packageDependencies": [\
+          ["ldrs", "npm:1.1.9"]\
         ],\
         "linkType": "HARD"\
       }]\

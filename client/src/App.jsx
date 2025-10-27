@@ -1,6 +1,6 @@
 import { RouteGuard } from "./components/RouteGuard";
 import AuthPage from "./pages/AuthPage";
-import HomePage from "./pages/HomePage";
+import Dashboard from "./pages/Dashboard";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route element={<RouteGuard authProtected={false} />}>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
         <Route element={<RouteGuard authProtected={true} />}>
           <Route path="/auth" element={<AuthPage />} />

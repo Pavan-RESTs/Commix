@@ -7,25 +7,31 @@ export const AlertProvider = ({ children }) => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [timer, setTimer] = useState();
 
-  const triggerAlert = (message, status) => {
+  const triggerAlert = async (message, status) => {
+    if (timer) {
+      dismissAlert();
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
     setMessage(message);
     setStatus(status);
     setShowAlert(true);
-    setTimeout(() => {
+    const dismissTimer = setTimeout(() => {
       dismissAlert();
-    }, 3600);
+    }, 2600);
+    setTimer(dismissTimer);
   };
 
   const dismissAlert = () => {
-    setMessage("");
-    setStatus("");
     setShowAlert(false);
+    clearTimeout(timer);
+    setTimer(null);
   };
 
   return (
     <AlertContext.Provider value={{ triggerAlert, dismissAlert }}>
-      {showAlert ? <Alert message={message} status={status} /> : ""}
+      {<Alert message={message} status={status} showAlert={showAlert} />}
       {children}
     </AlertContext.Provider>
   );

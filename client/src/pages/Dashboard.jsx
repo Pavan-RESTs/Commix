@@ -1,6 +1,6 @@
 import { useAuth } from "../context/AuthContext";
 
-function HomePage() {
+function Dashboard() {
   const { user, logout } = useAuth();
   return (
     <>
@@ -11,4 +11,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Dashboard;
